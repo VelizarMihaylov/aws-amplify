@@ -1,25 +1,31 @@
 import React from 'react'
-import logo from './logo.svg'
-import './App.css'
+
+import { BaseStyles } from 'components/BaseStyles'
+import { normalize, baseTypography } from 'mixin'
+import { PageSection } from 'components/PageSection'
+import { Grid } from 'components/Grid'
+import { GridColumn } from 'components/GridColumn'
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Reacts
-        </a>
-      </header>
-    </div>
+    <>
+      <BaseStyles
+        styles={`
+      ${normalize}
+      ${baseTypography}
+    `}
+      />
+      <PageSection>
+        <Grid>
+          <GridColumn gridWeight={8}>
+            <h1>One</h1>
+          </GridColumn>
+          <GridColumn gridWeight={12}>
+            <h1>Two</h1>
+          </GridColumn>
+        </Grid>
+      </PageSection>
+    </>
   )
 }
 

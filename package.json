@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
     "@types/node": "12.11.1",
     "@types/react": "16.9.9",
     "@types/react-dom": "16.9.2",
+    "@types/react-test-renderer": "^16.9.1",
     "node-sass": "^4.12.0",
-    "normalize.css": "^8.0.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
@@ -16,9 +18,14 @@
     "typescript": "3.6.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@storybook/addon-info": "^5.2.8",
+    "@storybook/react": "^5.2.8",
     "@types/jest": "24.0.19",
     "@typescript-eslint/eslint-plugin": "^2.6.0",
     "@typescript-eslint/parser": "^2.6.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
     "dotenv": "^8.2.0",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.5.0",
@@ -29,7 +36,9 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-standard": "^4.0.1",
+    "playroom": "^0.11.2",
     "prettier": "^1.19.1",
+    "react-docgen-typescript-loader": "^3.6.0",
     "react-test-renderer": "^16.10.2",
     "ts-jest": "^24.1.0"
   },
@@ -38,13 +47,20 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "deploy": "CI=true yarn test && yarn build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "playroom:start": "playroom start",
+    "playroom:build": "playroom build",
+    "storybook": "start-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

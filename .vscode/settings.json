@@ -1,4 +1,5 @@
 {
+  "jest.pathToJest": "yarn test",
   "editor.formatOnSave": false,
   "[javascript]": {
     "editor.formatOnSave": false,
@@ -6,22 +7,6 @@
   "[typescript]": {
     "editor.formatOnSave": false,
   },
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": [
-    "javascript",
-    {
-      "language": "typescript",
-      "autoFix": true
-    },
-    {
-      "language": "typescript",
-      "autoFix": true
-    },
-    {
-      "language": "typescriptreact",
-      "autoFix": true
-    }
-  ],
   "eslint.options": {
     "extensinons": [
       ".ts",
@@ -79,7 +64,11 @@
   "cSpell.words": [
     "Interop",
     "Openqa",
+    "esnext",
     "graphql",
     "mihaylv"
-  ]
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

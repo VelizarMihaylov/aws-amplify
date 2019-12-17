@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageSection should render without throwing an error 1`] = `
+<section
+  className="css-180vpgq"
+>
+  <div
+    className="css-1ocmp06"
+  />
+</section>
+`;
