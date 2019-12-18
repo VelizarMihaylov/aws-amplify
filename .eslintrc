@@ -31,5 +31,8 @@
       "version": "detect"
     }
   },
+  "globals": {
+    "page": "readonly"
+  },
   "parser": "@typescript-eslint/parser"
 }
