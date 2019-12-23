@@ -72,7 +72,7 @@ export const baseTypography = `
   }
 
   ul, ol {
-    padding-left: ${gridLineHeight}rem;
+    padding-left: 0;
     margin: 0;
   }
 

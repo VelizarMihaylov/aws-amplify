@@ -1,10 +1,8 @@
 import React from 'react'
 
-import { BaseStyles } from 'components/BaseStyles'
-import { normalize, baseTypography } from 'mixin'
-import { PageSection } from 'components/PageSection'
-import { Grid } from 'components/Grid'
-import { GridColumn } from 'components/GridColumn'
+import { normalize, baseTypography } from 'mixins'
+import { BaseStyles } from 'components'
+import { AirQuality } from 'pages'
 
 const App: React.FC = () => {
   return (
@@ -15,16 +13,7 @@ const App: React.FC = () => {
       ${baseTypography}
     `}
       />
-      <PageSection>
-        <Grid>
-          <GridColumn gridWeight={8}>
-            <h1>One</h1>
-          </GridColumn>
-          <GridColumn gridWeight={12}>
-            <h1>Two</h1>
-          </GridColumn>
-        </Grid>
-      </PageSection>
+      <AirQuality />
     </>
   )
 }

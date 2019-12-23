@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import styled from '@emotion/styled'
 
-import { ContentWrapper } from 'components/ContentWrapper'
-import { gridUnits } from 'mixin'
+import { ContentWrapper } from 'components/content-wrapper'
+import { gridUnits } from 'mixins'
 
-type ContentWrapperProps = {
+type PageSectionProps = {
   children?: React.ReactNode
 }
 
@@ -14,7 +14,7 @@ const StyledPageSection = styled.section`
   margin-bottom: ${gridUnits(1.5)}rem;
 `
 
-export const PageSection: React.FC<ContentWrapperProps> = ({ children }) => {
+export const PageSection: React.FC<PageSectionProps> = ({ children }) => {
   return (
     <StyledPageSection>
       <ContentWrapper>{children}</ContentWrapper>

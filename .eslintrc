@@ -32,7 +32,10 @@
     }
   },
   "globals": {
-    "page": "readonly"
+    "page": "readonly",
+    "browser": true,
+    "context": true,
+    "jestPuppeteer": true
   },
   "parser": "@typescript-eslint/parser"
 }

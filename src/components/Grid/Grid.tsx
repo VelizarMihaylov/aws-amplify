@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 
 import styled from '@emotion/styled'
 
-import { desktop } from 'mixin'
-
-type GridProps = {
-  children?: React.ReactNode
-}
+import { desktop } from 'mixins'
 
 const StyledGrid = styled.div`
   display: flex;
@@ -15,14 +11,12 @@ const StyledGrid = styled.div`
   flex-flow: column wrap;
   ${desktop(`
   flex-flow: row wrap;
-  &:first-child {
-      margin-left: 1.5rem;
-  }
-  &:last-child {
-      margin-right: 1.5rem;
-  }
   `)}
 `
+
+type GridProps = {
+  children?: React.ReactNode
+}
 
 export const Grid: React.FC<GridProps> = ({ children }) => {
   return <StyledGrid>{children}</StyledGrid>

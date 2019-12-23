@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBox should handle error state 1`] = `
+<h1>
+  Oops something went wrong!
+</h1>
+`;
+
+exports[`SearchBox should handle loading state 1`] = `
+<div
+  className="css-7410gz"
+>
+  <form
+    className="css-aq80jo"
+  >
+    <div
+      className="css-1g181gq"
+    />
+    <input
+      autoComplete="off"
+      className="SearchBox--input css-1tsdkxm"
+      disabled={true}
+      name="cities"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      value=""
+    />
+  </form>
+  <ul
+    className="css-bdlxgg"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  />
+</div>
+`;

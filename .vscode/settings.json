@@ -66,7 +66,8 @@
     "Openqa",
     "esnext",
     "graphql",
-    "mihaylv"
+    "mihaylv",
+    "mixins"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

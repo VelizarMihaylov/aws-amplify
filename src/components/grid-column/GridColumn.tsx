@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import styled from '@emotion/styled'
 
-import { gridWeight } from 'mixin'
+import { gridWeight } from 'mixins'
 
 type GridColumnProps = {
   children?: React.ReactNode
