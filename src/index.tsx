@@ -5,10 +5,13 @@ import * as serviceWorker from './serviceWorker'
 
 import { Provider } from 'react-redux'
 import store from 'state'
+import { ConfigProvider } from 'context'
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ConfigProvider>
+      <App />
+    </ConfigProvider>
   </Provider>,
   document.getElementById('root')
 )

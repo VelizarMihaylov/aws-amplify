@@ -1,11 +1,12 @@
 module.exports = {
   server: {
-    command: `BROWSER=none yarn start`,
-    port: 3000,
+    command: `BROWSER=none PORT=3999 yarn start`,
+    port: 3999,
     launchTimeout: 10000,
     debug: true
   },
   launch: {
-    headless: false
+    headless: true,
+    devtools: true
   }
 }

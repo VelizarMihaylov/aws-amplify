@@ -1,11 +1,9 @@
 version: '3'
 
 services:
-  app-boilerplate:
-    build: .
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+  apollo-graphql:
+    image: mihaylv/apollo-koa-graphql:0.0.3
+    environment:
+      - NODE_ENV=development
     ports:
-      - 3000:3000
-    command: yarn start:dev
+      - 4444:4444

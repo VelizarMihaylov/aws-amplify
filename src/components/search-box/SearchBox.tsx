@@ -164,6 +164,7 @@ export const SearchBox: React.FC<SearchBoxProps> = ({
       >
         {dataList.map(({ name }) => (
           <li
+            data-puppet="search-box-list-element"
             key={name}
             onMouseDown={(): void => {
               setSelection(name)

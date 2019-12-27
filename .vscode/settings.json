@@ -1,5 +1,6 @@
 {
   "jest.pathToJest": "yarn test",
+  "jest.restartJestOnSnapshotUpdate": true,
   "editor.formatOnSave": false,
   "[javascript]": {
     "editor.formatOnSave": false,
@@ -64,10 +65,16 @@
   "cSpell.words": [
     "Interop",
     "Openqa",
+    "api",
+    "app",
+    "end",
     "esnext",
     "graphql",
     "mihaylv",
-    "mixins"
+    "mixins",
+    "openaq",
+    "point",
+    "react"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true

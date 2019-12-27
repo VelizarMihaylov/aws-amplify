@@ -12,6 +12,7 @@ exports[`SearchBox should handle loading state 1`] = `
 >
   <form
     className="css-aq80jo"
+    data-puppet="search-box-form"
   >
     <div
       className="css-1g181gq"
@@ -19,6 +20,7 @@ exports[`SearchBox should handle loading state 1`] = `
     <input
       autoComplete="off"
       className="SearchBox--input css-1tsdkxm"
+      data-puppet="search-box-input"
       disabled={true}
       name="cities"
       onBlur={[Function]}
