@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 
 import { MagnifyingGlassIcon } from './icon'
-import { useFetch } from 'effects'
 import styled from '@emotion/styled'
 import { spinner, gridUnits, colours } from 'mixins'
+
+import { useQuery } from '@apollo/react-hooks'
+import { GET_CITIES } from 'graph-ql'
 
 const SearchBoxContainer = styled.div`
   width: 100%;
@@ -99,37 +100,20 @@ const SearchBoxIconSpinner = styled.div`
   background: none;
   outline: none !important;
 `
-type SearchBoxProps = {
-  url: string
-}
 
-type FetchDataResponse = {
-  meta: {
+type QueryDataResponse = {
+  cities: {
     name: string
-    license: string
-    website: string
-    page: number
-    limit: number
-    found: number
-  }
-  results: Array<{
-    country: string
-    name: string
-    city: string
-    count: number
-    locations: number
-  }>
+  }[]
 }
-export const SearchBox: React.FC<SearchBoxProps> = ({
-  url
-}): React.ReactElement => {
-  const { data, loading, error } = useFetch<FetchDataResponse>(url)
+export const SearchBox: React.FC = (): React.ReactElement => {
+  const { data, loading, error } = useQuery<QueryDataResponse>(GET_CITIES)
   const dispatch = useDispatch()
-  const [dataList, setDataList] = useState<FetchDataResponse['results']>([])
+  const [dataList, setDataList] = useState<QueryDataResponse['cities']>([])
   const [selection, setSelection] = useState('')
   const [showList, setShowList] = useState(false)
   if (error) return <h1>Oops something went wrong!</h1>
-  const { results: cities } = data || { results: [] }
+  const { cities } = data || { cities: [] }
   return (
     <SearchBoxContainer>
       <SearchBoxForm data-puppet="search-box-form">
@@ -177,8 +161,4 @@ export const SearchBox: React.FC<SearchBoxProps> = ({
       </SearchBoxDatalist>
     </SearchBoxContainer>
   )
-}
-
-SearchBox.propTypes = {
-  url: PropTypes.string.isRequired
 }

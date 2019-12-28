@@ -1,14 +1,21 @@
-import React, { useContext } from 'react'
-import { PageSection, Grid, SearchBox } from 'components'
-import { ConfigContext } from 'context'
+import React from 'react'
+import { PageSection, Grid, SearchBox, ListLocations } from 'components'
+import { useSelector } from 'react-redux'
 
 export const AirQuality = (): React.ReactElement => {
-  const { openAQUrl } = useContext(ConfigContext)
+  const { city } = useSelector(({ city }: { city: string }): {
+    city: string
+  } => ({ city }))
   return (
-    <PageSection>
-      <Grid>
-        <SearchBox url={`${openAQUrl}/v1/cities?country=GB`} />
-      </Grid>
-    </PageSection>
+    <>
+      <PageSection>
+        <Grid>
+          <SearchBox />
+        </Grid>
+      </PageSection>
+      <PageSection>
+        {city.length > 0 && <ListLocations city={city} />}
+      </PageSection>
+    </>
   )
 }

@@ -4,4 +4,6 @@ import { createStore } from 'redux'
 
 const store = createStore(reducers)
 
+export type ReduxStore = typeof store
+
 export default store

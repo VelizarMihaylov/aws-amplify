@@ -7,12 +7,17 @@ import { Provider } from 'react-redux'
 import store from 'state'
 import { ConfigProvider } from 'context'
 
+import { ApolloProvider } from '@apollo/react-hooks'
+import { client } from 'graph-ql'
+
 ReactDOM.render(
-  <Provider store={store}>
-    <ConfigProvider>
-      <App />
-    </ConfigProvider>
-  </Provider>,
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <ConfigProvider>
+        <App />
+      </ConfigProvider>
+    </Provider>
+  </ApolloProvider>,
   document.getElementById('root')
 )
 
