@@ -10,9 +10,11 @@ jest.mock('react-redux')
 
 const mockedUseDispatch = useDispatch as jest.Mock<unknown>
 
-const dayjs = jest.genMockFromModule('dayjs') as jest.Mock
+import dayjs from 'dayjs'
+jest.mock('dayjs')
 
 describe('LocationCard', () => {
+  // @ts-ignore
   dayjs.mockImplementation(() => ({
     extend: jest.fn(),
     utc: (): {} => ({

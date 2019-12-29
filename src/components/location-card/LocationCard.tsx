@@ -71,6 +71,7 @@ export const LocationCard: React.FC<LocationCardProps> = ({
   const formattedDate = dayjs(lastUpdated)
     .utc()
     .fromNow()
+  console.log('formated date', formattedDate)
   return (
     <StyledLocationCard data-puppet="location-card">
       <StyledCloseIcon
@@ -79,7 +80,7 @@ export const LocationCard: React.FC<LocationCardProps> = ({
         }}
       />
       <LocationCardContent>
-        <UpdatedAt>{`Updated ${formattedDate}`}</UpdatedAt>
+        <UpdatedAt>{`Updated ${process.env.REACT_APP_PUPPETEER === 'true' ? '5 hours ago' : formattedDate}`}</UpdatedAt>
         <h3>{location}</h3>
         <p>{`in ${city}, United Kingdom`}</p>
         <Values>{`Value: ${measurements

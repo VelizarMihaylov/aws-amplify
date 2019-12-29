@@ -79,6 +79,7 @@ export const ListLocations: React.FC<ListLocationsProps> = ({
   const dispatch = useDispatch()
   useEffect(() => {
     const { latestMeasurements } = data || { latestMeasurements: [] }
+    console.log('LATEST ', latestMeasurements)
     dispatch({
       type: 'ADD_LOCATIONS',
       payload: latestMeasurements.map(measurements => ({

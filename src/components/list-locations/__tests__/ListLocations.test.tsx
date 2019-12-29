@@ -15,8 +15,17 @@ jest.mock('react-redux')
 const mockedUseDispatch = useDispatch as jest.Mock<unknown>
 const mockedUseSelector = useSelector as jest.Mock<unknown>
 
+import dayjs from 'dayjs'
+jest.mock('dayjs')
+
 describe('ListLocations', () => {
-  afterEach(() => jest.clearAllMocks())
+  // @ts-ignore
+  dayjs.mockImplementation(() => ({
+    extend: jest.fn(),
+    utc: (): {} => ({
+      fromNow: (): string => '5 hours ago'
+    })
+  }))
 
   it('should handle loading state', () => {
     mockedUseQuery.mockImplementation(() => ({ loading: true }))

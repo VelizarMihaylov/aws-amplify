@@ -1,20 +1,47 @@
 import { toMatchImageSnapshot } from 'jest-image-snapshot'
+import { citiesMock, latestMeasurementsMock } from './__mocks__'
 
-describe('Google', () => {
+describe('', () => {
   beforeAll(async () => {
-    await page.goto(`${process.env.INTEGRATION_TEST_URL}`)
     expect.extend({ toMatchImageSnapshot })
-  })
-  it('should load', async () => {
-    await expect(page.title()).resolves.toMatch('React App')
-  })
 
+    await page.setRequestInterception(true)
+
+    await page.on('request', request => {
+      const url = request.url()
+      if (url === 'http://localhost:4444/graphql' && request.postData()) {
+        if (JSON.parse(request.postData()).query.includes('cities')) {
+          request.respond({
+            status: 200,
+            contentType: 'application/json',
+            headers: { 'Access-Control-Allow-Origin': '*' },
+            body: JSON.stringify(citiesMock)
+          })
+        }
+        if (
+          request.postData() &&
+          JSON.parse(request.postData()).query.includes('latestMeasurements')
+        ) {
+          request.respond({
+            status: 200,
+            contentType: 'application/json',
+            headers: { 'Access-Control-Allow-Origin': '*' },
+            body: JSON.stringify(latestMeasurementsMock)
+          })
+        }
+      } else {
+        request.continue()
+      }
+    })
+
+    await page.goto(`${process.env.INTEGRATION_TEST_URL}`)
+  })
   it('should populate the input box with selected city ', async () => {
     await page.waitForSelector('[data-puppet="magnifying-glass-icon"]', {
       visible: true
     })
     const searchInput = await page.$('[data-puppet="search-box-input"]')
-    await searchInput.type('lo', { delay: 100 })
+    await searchInput.type('ma', { delay: 100 })
     const searchListElements = await page.$$(
       '[data-puppet="search-box-list-element"]'
     )
@@ -22,9 +49,9 @@ describe('Google', () => {
     const searchBoxScreenshot = await page.screenshot()
     expect(searchBoxScreenshot).toMatchImageSnapshot()
     // Continue
-    await searchListElements[1].click()
+    await searchListElements[2].click()
     const value = await (await searchInput.getProperty('value')).jsonValue()
-    expect(value).toBe('Lough Navar')
+    expect(value).toBe('Manchester')
     await page.waitForSelector('[data-puppet="magnifying-glass-icon"]', {
       visible: true
     })

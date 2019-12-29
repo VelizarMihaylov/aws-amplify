@@ -47,7 +47,7 @@ exports[`ListLocations should render locations when not in loading or error stat
       <p
         className="css-b0bjy"
       >
-        Updated a day ago
+        Updated 5 hours ago
       </p>
       <h3>
         Manchester Piccadilly
@@ -89,7 +89,7 @@ exports[`ListLocations should render locations when not in loading or error stat
       <p
         className="css-b0bjy"
       >
-        Updated a day ago
+        Updated 5 hours ago
       </p>
       <h3>
         Manchester Sharston
@@ -131,7 +131,7 @@ exports[`ListLocations should render locations when not in loading or error stat
       <p
         className="css-b0bjy"
       >
-        Updated a day ago
+        Updated 5 hours ago
       </p>
       <h3>
         Salford Eccles

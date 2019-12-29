@@ -114,6 +114,7 @@ export const SearchBox: React.FC = (): React.ReactElement => {
   const [showList, setShowList] = useState(false)
   if (error) return <h1>Oops something went wrong!</h1>
   const { cities } = data || { cities: [] }
+  console.log('CITIES', cities)
   return (
     <SearchBoxContainer>
       <SearchBoxForm data-puppet="search-box-form">
