@@ -7,6 +7,11 @@ import { CloseIcon } from './icon'
 import { gridUnits, colours, bold } from 'mixins'
 import { useDispatch } from 'react-redux'
 
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import utc from 'dayjs/plugin/utc'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+
 const StyledLocationCard = styled.div`
   position: relative;
   height: 100%;
@@ -60,15 +65,21 @@ export const LocationCard: React.FC<LocationCardProps> = ({
   measurements
 }) => {
   const dispatch = useDispatch()
+  dayjs.extend(utc)
+  dayjs.extend(relativeTime)
+  dayjs.extend(customParseFormat)
+  const formattedDate = dayjs(lastUpdated)
+    .utc()
+    .fromNow()
   return (
-    <StyledLocationCard>
+    <StyledLocationCard data-puppet="location-card">
       <StyledCloseIcon
         onClick={(): void => {
           dispatch({ type: 'REMOVE_LOCATION', payload: location })
         }}
       />
       <LocationCardContent>
-        <UpdatedAt>{`Updated ${lastUpdated}`}</UpdatedAt>
+        <UpdatedAt>{`Updated ${formattedDate}`}</UpdatedAt>
         <h3>{location}</h3>
         <p>{`in ${city}, United Kingdom`}</p>
         <Values>{`Value: ${measurements

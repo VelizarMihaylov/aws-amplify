@@ -1,5 +1,5 @@
 import React from 'react'
-import CloseIcon from '..'
+import { CloseIcon } from '..'
 import { create } from 'react-test-renderer'
 
 describe('CloseIcon', () => {

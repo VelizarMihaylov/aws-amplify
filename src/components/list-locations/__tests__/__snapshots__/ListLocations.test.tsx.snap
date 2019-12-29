@@ -22,6 +22,7 @@ exports[`ListLocations should render locations when not in loading or error stat
 >
   <div
     className="css-m8ffne"
+    data-puppet="location-card"
   >
     <svg
       className="css-17hessb"
@@ -46,13 +47,13 @@ exports[`ListLocations should render locations when not in loading or error stat
       <p
         className="css-b0bjy"
       >
-        Updated 2019-12-28T08:00:00.000Z
+        Updated a day ago
       </p>
       <h3>
         Manchester Piccadilly
       </h3>
       <p>
-        in LONDON, United Kingdom
+        in Manchester, United Kingdom
       </p>
       <p
         className="css-66vicj"
@@ -63,6 +64,7 @@ exports[`ListLocations should render locations when not in loading or error stat
   </div>
   <div
     className="css-m8ffne"
+    data-puppet="location-card"
   >
     <svg
       className="css-17hessb"
@@ -87,13 +89,13 @@ exports[`ListLocations should render locations when not in loading or error stat
       <p
         className="css-b0bjy"
       >
-        Updated 2019-12-28T08:00:00.000Z
+        Updated a day ago
       </p>
       <h3>
         Manchester Sharston
       </h3>
       <p>
-        in LONDON, United Kingdom
+        in Manchester, United Kingdom
       </p>
       <p
         className="css-66vicj"
@@ -104,6 +106,7 @@ exports[`ListLocations should render locations when not in loading or error stat
   </div>
   <div
     className="css-m8ffne"
+    data-puppet="location-card"
   >
     <svg
       className="css-17hessb"
@@ -128,13 +131,13 @@ exports[`ListLocations should render locations when not in loading or error stat
       <p
         className="css-b0bjy"
       >
-        Updated 2019-12-28T08:00:00.000Z
+        Updated a day ago
       </p>
       <h3>
         Salford Eccles
       </h3>
       <p>
-        in LONDON, United Kingdom
+        in Manchester, United Kingdom
       </p>
       <p
         className="css-66vicj"

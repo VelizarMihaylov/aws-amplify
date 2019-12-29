@@ -2,21 +2,16 @@
 
 exports[`LocationCard should render with city, location and measurement props 1`] = `
 <div
-  className="LocationCard"
+  className="css-m8ffne"
+  data-puppet="location-card"
 >
   <svg
-    className="LocationCard--icon__close"
+    className="css-17hessb"
     id="Capa_1"
     onClick={[Function]}
-    style={
-      Object {
-        "enableBackground": "new 0 0 348.333 348.334",
-      }
-    }
     version="1.1"
     viewBox="0 0 348.333 348.334"
     x="0px"
-    xlink="http://www.w3.org/1999/xlink"
     xmlSpace="preserve"
     xmlns="http://www.w3.org/2000/svg"
     y="0px"
@@ -28,12 +23,12 @@ exports[`LocationCard should render with city, location and measurement props 1`
     </g>
   </svg>
   <div
-    className="LocationCard--content"
+    className="css-xbce0x"
   >
     <p
-      className="LocationCard--content--updatedAt"
+      className="css-b0bjy"
     >
-      Updated 5 hours ago
+      Updated a day ago
     </p>
     <h3>
       Manchester Piccadilly
@@ -42,9 +37,9 @@ exports[`LocationCard should render with city, location and measurement props 1`
       in Manchester, United Kingdom
     </p>
     <p
-      className="LocationCard--content--values"
+      className="css-66vicj"
     >
-      Value: NO2: 37, SO2: 3, PM25: 4, O3: 9
+      Value: PM25: 10 µg/m³, SO2: 11 µg/m³, NO2: 22 µg/m³, O3: 17 µg/m³
     </p>
   </div>
 </div>

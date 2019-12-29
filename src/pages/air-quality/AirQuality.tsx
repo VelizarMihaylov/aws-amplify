@@ -3,9 +3,7 @@ import { PageSection, Grid, SearchBox, ListLocations } from 'components'
 import { useSelector } from 'react-redux'
 
 export const AirQuality = (): React.ReactElement => {
-  const { city } = useSelector(({ city }: { city: string }): {
-    city: string
-  } => ({ city }))
+  const { city } = useSelector(({ city }: { city: string }) => ({ city }))
   return (
     <>
       <PageSection>

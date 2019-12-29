@@ -1,6 +1,7 @@
 {
   "jest.pathToJest": "yarn test",
   "jest.restartJestOnSnapshotUpdate": true,
+  "jest.enableSnapshotUpdateMessages": false,
   "editor.formatOnSave": false,
   "[javascript]": {
     "editor.formatOnSave": false,

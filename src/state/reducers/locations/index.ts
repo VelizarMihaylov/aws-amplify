@@ -1,9 +1,5 @@
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import utc from 'dayjs/plugin/utc'
-import customParseFormat from 'dayjs/plugin/customParseFormat'
-
 export type Locations = Array<{
+  city: string
   location: string
   lastUpdated: string
   measurements: {
@@ -29,18 +25,7 @@ const locations = (
 ): [] | Locations => {
   switch (action.type) {
     case 'ADD_LOCATIONS':
-      return action.payload.map(measurement => {
-        dayjs.extend(utc)
-        dayjs.extend(relativeTime)
-        dayjs.extend(customParseFormat)
-        const formattedDate = dayjs(measurement.lastUpdated)
-          .utc()
-          .fromNow()
-        return {
-          ...measurement,
-          lastUpdated: formattedDate
-        }
-      })
+      return action.payload
     case 'REMOVE_LOCATION':
       return [...store.filter(({ location }) => location !== action.payload)]
     default:

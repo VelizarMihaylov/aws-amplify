@@ -19,11 +19,21 @@ describe('Google', () => {
       '[data-puppet="search-box-list-element"]'
     )
     // Take screenshot
-    const image = await page.screenshot()
-    expect(image).toMatchImageSnapshot()
+    const searchBoxScreenshot = await page.screenshot()
+    expect(searchBoxScreenshot).toMatchImageSnapshot()
     // Continue
     await searchListElements[1].click()
     const value = await (await searchInput.getProperty('value')).jsonValue()
     expect(value).toBe('Lough Navar')
+    await page.waitForSelector('[data-puppet="magnifying-glass-icon"]', {
+      visible: true
+    })
+    await page.waitForSelector('[data-puppet="location-card"]', {
+      visible: true
+    })
+    // Take screenshot
+    const locationsListScreenshot = await page.screenshot()
+    expect(locationsListScreenshot).toMatchImageSnapshot()
+    // Continue
   })
 })

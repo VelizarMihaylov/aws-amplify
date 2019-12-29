@@ -9,6 +9,7 @@ import { useQuery } from '@apollo/react-hooks'
 import { LATEST_MEASUREMENTS } from 'graph-ql'
 
 import { LocationCard } from 'components'
+import { Locations } from 'state/reducers/locations'
 
 const StyledListLocations = styled.div`
   min-height: ${gridUnits(30)}rem;
@@ -63,17 +64,7 @@ export const ListLocations: React.FC<ListLocationsProps> = ({
   city
 }): React.ReactElement => {
   const { locations } = useSelector(
-    ({
-      city,
-      locations
-    }: {
-      city: string
-      locations: QueryDataResponse['latestMeasurements']
-    }): {
-      city: string
-      locations: QueryDataResponse['latestMeasurements']
-    } => ({
-      city,
+    ({ locations }: { locations: Locations }) => ({
       locations
     }),
     shallowEqual
@@ -88,7 +79,13 @@ export const ListLocations: React.FC<ListLocationsProps> = ({
   const dispatch = useDispatch()
   useEffect(() => {
     const { latestMeasurements } = data || { latestMeasurements: [] }
-    dispatch({ type: 'ADD_LOCATIONS', payload: latestMeasurements })
+    dispatch({
+      type: 'ADD_LOCATIONS',
+      payload: latestMeasurements.map(measurements => ({
+        city,
+        ...measurements
+      }))
+    })
   }, [city, data, dispatch])
   if (error) return <h1>Oops something went wrong!</h1>
   return (
@@ -96,7 +93,7 @@ export const ListLocations: React.FC<ListLocationsProps> = ({
       {loading ? (
         <ListLocationSpinner />
       ) : (
-        locations.map(({ location, lastUpdated, measurements }, i) => (
+        locations.map(({ city, location, lastUpdated, measurements }, i) => (
           <LocationCard
             key={`${i}-location`}
             city={city}
