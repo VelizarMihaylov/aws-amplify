@@ -1,6 +1,12 @@
-type Locations = Array<{
+export type Locations = Array<{
   city: string
   location: string
+  lastUpdated: string
+  measurements: {
+    parameter: string
+    value: number
+    unit: string
+  }[]
 }>
 
 type Action =

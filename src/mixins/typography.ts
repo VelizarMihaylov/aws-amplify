@@ -33,6 +33,9 @@ export const fitToBaselineGrid = (scale: number): string => {
   `
 }
 
+export const bold = 600
+export const regular = 400
+
 export const baseTypography = `
   html {
     font-size: 75%;

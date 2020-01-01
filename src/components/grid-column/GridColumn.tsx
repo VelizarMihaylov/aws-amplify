@@ -25,7 +25,11 @@ GridColumn.defaultProps = {
   gridWeight: 1
 }
 
+GridColumn.defaultProps = {
+  gridWeight: 1
+}
+
 GridColumn.propTypes = {
   children: PropTypes.node,
-  gridWeight: PropTypes.number
+  gridWeight: PropTypes.number.isRequired
 }

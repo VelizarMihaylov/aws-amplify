@@ -2,10 +2,10 @@ import React from 'react'
 import { SearchBox } from '../SearchBox'
 import { create, act } from 'react-test-renderer'
 
-import { useFetch } from 'effects/use-fetch'
-jest.mock('effects/use-fetch')
+import { useQuery } from '@apollo/react-hooks'
+jest.mock('@apollo/react-hooks')
 
-const mockedUseFetch = useFetch as jest.Mock<unknown>
+const mockedUseQuery = useQuery as jest.Mock<unknown>
 
 import { useDispatch } from 'react-redux'
 jest.mock('react-redux')
@@ -15,40 +15,26 @@ const mockedUseDispatch = useDispatch as jest.Mock<unknown>
 describe('SearchBox', () => {
   afterEach(() => jest.resetAllMocks())
   const data = {
-    results: [
+    cities: [
       {
-        country: 'GB',
-        name: 'London',
-        city: 'London',
-        count: 158120,
-        locations: 3
+        name: 'London'
       },
       {
-        country: 'GB',
-        name: 'Manchester',
-        city: 'Manchester',
-        count: 48890,
-        locations: 1
+        name: 'Manchester'
       },
       {
-        country: 'GB',
-        name: 'Leeds',
-        city: 'Leeds',
-        count: 51077,
-        locations: 1
+        name: 'Leeds'
       }
     ]
   }
   it('should handle loading state', () => {
-    mockedUseFetch.mockImplementation(() => ({ loading: true }))
+    mockedUseQuery.mockImplementation(() => ({ loading: true }))
     mockedUseDispatch.mockImplementation(() => jest.fn())
-    const SearchBoxRender = create(
-      <SearchBox url="https://test-api.com" />
-    ).toJSON()
+    const SearchBoxRender = create(<SearchBox />).toJSON()
     expect(SearchBoxRender).toMatchSnapshot()
   })
   it('should handle error state', () => {
-    mockedUseFetch.mockImplementation(() => ({ error: true }))
+    mockedUseQuery.mockImplementation(() => ({ error: true }))
     mockedUseDispatch.mockImplementation(() => jest.fn())
     const SearchBoxRender = create(
       <SearchBox url="https://test-api.com" />
@@ -56,13 +42,13 @@ describe('SearchBox', () => {
     expect(SearchBoxRender).toMatchSnapshot()
   })
   it('should list all cities options when onFocus event is triggered and data is fetched', () => {
-    mockedUseFetch.mockImplementation(() => ({
+    mockedUseQuery.mockImplementation(() => ({
       loading: false,
       error: false,
       data
     }))
     mockedUseDispatch.mockImplementation(() => jest.fn())
-    const SearchBoxRender = create(<SearchBox url="https://test-api.com" />)
+    const SearchBoxRender = create(<SearchBox />)
 
     const input = SearchBoxRender.root.find(element => element.type === 'input')
 
@@ -77,14 +63,14 @@ describe('SearchBox', () => {
   })
 
   it('should dispatch ADD_CITY action when the city list is empty and onFocus action is triggered', () => {
-    mockedUseFetch.mockImplementation(() => ({
+    mockedUseQuery.mockImplementation(() => ({
       loading: false,
       error: false,
       data
     }))
     const dispatch = jest.fn()
     mockedUseDispatch.mockImplementation(() => dispatch)
-    const SearchBoxRender = create(<SearchBox url="https://test-api.com" />)
+    const SearchBoxRender = create(<SearchBox />)
 
     const input = SearchBoxRender.root.find(element => element.type === 'input')
 
