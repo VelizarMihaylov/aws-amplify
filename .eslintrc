@@ -17,7 +17,6 @@
     "jest": true
   },
   "rules": {
-    "ban-ts-ignore": false,
     "prettier/prettier": [
       "error",
       {

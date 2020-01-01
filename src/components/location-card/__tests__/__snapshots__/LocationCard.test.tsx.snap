@@ -2,7 +2,7 @@
 
 exports[`LocationCard should render with city, location and measurement props 1`] = `
 <div
-  className="css-m8ffne"
+  className="css-1nd7c0a"
   data-puppet="location-card"
 >
   <svg

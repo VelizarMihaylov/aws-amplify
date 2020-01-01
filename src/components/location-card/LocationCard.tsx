@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
 import { CloseIcon } from './icon'
-import { gridUnits, colours, bold } from 'mixins'
+import { gridUnits, colours, bold, desktop } from 'mixins'
 import { useDispatch } from 'react-redux'
 
 import dayjs from 'dayjs'
@@ -19,6 +19,9 @@ const StyledLocationCard = styled.div`
   padding-bottom: ${gridUnits(1.5)}rem;
   background: ${colours.white};
   border-radius: ${gridUnits(1.5)}rem;
+  ${desktop(`
+  max-width: ${gridUnits(28)}rem;
+  `)}
 `
 
 const StyledCloseIcon = styled(CloseIcon)`
@@ -58,6 +61,7 @@ type LocationCardProps = {
     unit: string
   }[]
 }
+
 export const LocationCard: React.FC<LocationCardProps> = ({
   city,
   location,
@@ -80,7 +84,11 @@ export const LocationCard: React.FC<LocationCardProps> = ({
         }}
       />
       <LocationCardContent>
-        <UpdatedAt>{`Updated ${process.env.REACT_APP_PUPPETEER === 'true' ? '5 hours ago' : formattedDate}`}</UpdatedAt>
+        <UpdatedAt>{`Updated ${
+          process.env.REACT_APP_PUPPETEER === 'true'
+            ? '5 hours ago'
+            : formattedDate
+        }`}</UpdatedAt>
         <h3>{location}</h3>
         <p>{`in ${city}, United Kingdom`}</p>
         <Values>{`Value: ${measurements
@@ -97,6 +105,7 @@ export const LocationCard: React.FC<LocationCardProps> = ({
 LocationCard.propTypes = {
   city: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
+  /** UTC time and date */
   lastUpdated: PropTypes.string.isRequired,
   measurements: PropTypes.array.isRequired
 }

@@ -21,7 +21,7 @@ exports[`ListLocations should render locations when not in loading or error stat
   className="css-92heyk"
 >
   <div
-    className="css-m8ffne"
+    className="css-1nd7c0a"
     data-puppet="location-card"
   >
     <svg
@@ -63,7 +63,7 @@ exports[`ListLocations should render locations when not in loading or error stat
     </div>
   </div>
   <div
-    className="css-m8ffne"
+    className="css-1nd7c0a"
     data-puppet="location-card"
   >
     <svg
@@ -105,7 +105,7 @@ exports[`ListLocations should render locations when not in loading or error stat
     </div>
   </div>
   <div
-    className="css-m8ffne"
+    className="css-1nd7c0a"
     data-puppet="location-card"
   >
     <svg
