@@ -36,9 +36,7 @@ describe('SearchBox', () => {
   it('should handle error state', () => {
     mockedUseQuery.mockImplementation(() => ({ error: true }))
     mockedUseDispatch.mockImplementation(() => jest.fn())
-    const SearchBoxRender = create(
-      <SearchBox url="https://test-api.com" />
-    ).toJSON()
+    const SearchBoxRender = create(<SearchBox />).toJSON()
     expect(SearchBoxRender).toMatchSnapshot()
   })
   it('should list all cities options when onFocus event is triggered and data is fetched', () => {
